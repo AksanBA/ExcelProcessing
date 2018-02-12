@@ -1,19 +1,14 @@
-#!/usr/bin/env excelprocess
+#!/usr/bin/env python
 """
 This is a slightly modified code from: https://github.com/elizabethsiegle/nba-stats-twilio-sms-bot
 Currently have the following trial number set up for use to return the player comparison: +1213-437-9533
 No permanent ngrok webhook at the moment!
 
-Here we expand the project with pandas with the following aims:
-1) Given a player and season, return per game statistics
-2) Given a set of player and season per game statistics, return the best or worst player in that set (comparison)
-3) Use openpyxl to do something non-trivial that cannot be completed with pandas: charts!
-
 """
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 from openpyxl import load_workbook, Workbook
-import pandas as pd
+
 
 def parse_data_into_dict(data):
     list_of_players = []
@@ -38,12 +33,7 @@ def parse_data_into_dict(data):
                 list_of_stats.append(ws[cell_name].value)
     return dict(zip(list_of_players, list_of_stats))
 
-def user_choice():
-    season =
 
-def load_year():
-    year = input('Enter the season you would like to compare: ')
-    pd.read_excel()
 
 
 app = Flask(__name__)
