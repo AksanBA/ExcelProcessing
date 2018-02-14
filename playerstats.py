@@ -14,9 +14,25 @@ from twilio.twiml.messaging_response import MessagingResponse
 from openpyxl import load_workbook, Workbook
 import pandas as pd
 
-def user_choice():
-    season =
+p2016 = pd.read_excel("nbastats2016.xlsx")
+p2017 = pd.read_excel("nbastats2017.xlsx")
+p2018 = pd.read_excel("nbastats2018.xlsx")
 
-def load_year():
+# Cleaning player column for string matching
+
+pattern = '\\\[a-zA-Z0-9_]*'
+p2016['Player'] = p2016['Player'].str.replace(pattern, '')
+p2017['Player'] = p2017['Player'].str.replace(pattern, '')
+p2018['Player'] = p2018['Player'].str.replace(pattern, '')
+
+def single_player():
+    player = input('Enter the player you would like to compare: ')
     year = input('Enter the season you would like to compare: ')
-    pd.read_excel()
+
+    mask = series.str.match(pattern)
+
+def compare_players():
+    players = input('Enter the players you would like to compare: ')
+    year = input('Enter the season you would like to compare:')
+
+def output_excel_chart():
